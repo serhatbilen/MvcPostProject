@@ -1,0 +1,21 @@
+﻿@using BitirmeProjem.BusinessLayer
+@using BitirmeProjem.Entities
+@{
+    TagManager tag = new TagManager();
+    List<Tag> list = tag.GetTag();
+}
+
+
+
+<div class="container d-flex align-items-center justify-content-between">
+    <a href="/Home/Index" style="margin-right:10px;">Tümü</a>
+    @foreach (Tag item in list)
+    {
+        <div class="col-lg-2 col-md-4 col-6 ">
+            <a href="/Home/GetTag/@item.Id" style="margin-right:10px;" alt="@item.Description">@item.Title</a>
+        </div>
+    }
+</div>
+@*class="container d-flex align-items-center justify-content-between"
+
+class="row d-flex align-items-center"*@
